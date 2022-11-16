@@ -31,9 +31,12 @@ const caculSlice = createSlice({
         } else {
           state.result = ans;
         }
+        let result = state.question + "=" + state.result;
+        state.historyCacul.push({ id: nanoid(), result: result });
       }
-      let result = state.question + "=" + state.result;
-      state.historyCacul.push({ id: nanoid(), result: result });
+    },
+    clearHistory(state) {
+      state.historyCacul = [];
     },
     defaultCacul(state, action) {
       state.question += action.payload;
@@ -49,7 +52,13 @@ export const caculSelector = (state) => state.caculReducer.question;
 export const resultSelector = (state) => state.caculReducer.result;
 export const historySelector = (state) => state.caculReducer.historyCacul;
 // Action
-export const { deleteCacul, clearCacul, totalCacul, defaultCacul, history } =
-  caculSlice.actions;
+export const {
+  deleteCacul,
+  clearCacul,
+  totalCacul,
+  defaultCacul,
+  history,
+  clearHistory,
+} = caculSlice.actions;
 
 export default caculReducer;

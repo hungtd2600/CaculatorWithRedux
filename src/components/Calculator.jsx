@@ -12,6 +12,7 @@ import {
   totalCacul,
   defaultCacul,
   historySelector,
+  clearHistory,
 } from "../features/CaculatorSlice";
 
 const Calculator = () => {
@@ -32,6 +33,10 @@ const Calculator = () => {
       }
       case "Clear": {
         dispatch(clearCacul(value));
+        break;
+      }
+      case "ClearHistory": {
+        dispatch(clearHistory(value));
         break;
       }
       default: {
@@ -113,8 +118,8 @@ const Calculator = () => {
       <br />
       <History
         historys={historys}
-        label={"History"}
-        handleClick={handleClick.bind(this, "History")}
+        label={"Clear"}
+        handleClick={handleClick.bind(this, "ClearHistory")}
       />
     </div>
   );

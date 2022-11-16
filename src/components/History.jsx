@@ -4,6 +4,7 @@ const History = (props) => {
   let historys = props.historys;
   return (
     <div className="history">
+      <h1>History</h1>
       <input
         className={props.className}
         type="button"
