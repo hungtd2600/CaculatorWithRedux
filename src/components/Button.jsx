@@ -1,10 +1,10 @@
-const Button = (props) => {
+const Button = ({ className, label, handleClick }) => {
   return (
     <input
-      className={props.className}
+      className={className}
       type="button"
-      value={props.label}
-      onClick={props.handleClick}
+      value={label}
+      onClick={handleClick}
     />
   );
 };

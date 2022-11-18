@@ -1,17 +1,17 @@
 import React from "react";
 
-const History = (props) => {
-  let historys = props.historys;
+const History = ({ historys, className, label, handleClick }) => {
+  let history = historys;
   return (
     <div className="history">
       <h1>History</h1>
       <input
-        className={props.className}
+        className={className}
         type="button"
-        value={props.label}
-        onClick={props.handleClick}
+        value={label}
+        onClick={handleClick}
       />
-      {historys.map((item) => (
+      {history.map((item) => (
         <p key={item.id}>{item.result}</p>
       ))}
     </div>
